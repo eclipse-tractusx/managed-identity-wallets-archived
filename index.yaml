@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   managed-identity-wallets:
   - apiVersion: v2
+    appVersion: 2.1.0
+    created: "2022-12-20T16:13:58.518828075Z"
+    dependencies:
+    - alias: acapypostgresql
+      condition: acapypostgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    - alias: postgresql
+      condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    description: Managed Identity Wallets Service
+    digest: ecada290b23496769ded574db00b4dd01ab1242794d9a1d5fbf8708214012c40
+    name: managed-identity-wallets
+    type: application
+    urls:
+    - https://github.com/eclipse-tractusx/managed-identity-wallets/releases/download/managed-identity-wallets-0.5.19/managed-identity-wallets-0.5.19.tgz
+    version: 0.5.19
+  - apiVersion: v2
     appVersion: 2.1.1
     created: "2022-12-18T12:13:08.406198888Z"
     dependencies:
@@ -22,4 +43,4 @@ entries:
     urls:
     - https://github.com/eclipse-tractusx/managed-identity-wallets/releases/download/managed-identity-wallets-0.5.18/managed-identity-wallets-0.5.18.tgz
     version: 0.5.18
-generated: "2022-12-18T12:13:08.406212289Z"
+generated: "2022-12-20T16:13:58.518836375Z"
