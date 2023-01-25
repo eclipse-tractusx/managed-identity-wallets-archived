@@ -6,7 +6,7 @@ auth:
 image:
   name: "catenax-ng/tx-managed-identity-wallets_service"
   registry: "ghcr.io"
-  tag: "3.0.0"
+  tag: ""
   secret: "acr-credentials"
 allowEmptyPassword: "\"yes\""
 db:
@@ -15,9 +15,9 @@ namespace: "managed-identity-wallets"
 logging:
   exposed: "INFO"
 wallet:
-  baseWalletBpn: "BPNL000000000000"
-  baseWalletShortDid: "MhLrwtKpZhNCzazMeofPQH"
-  baseWalletVerkey: "CHEC4PRQmP73A9UD7vQ6tnLAm9aoXLPhEtnGSMiAyVZj"
+  baseWalletBpn: "BPNLxxxxxxxxxx"
+  baseWalletShortDid: "ShortDIDPlaceholderX"
+  baseWalletVerkey: "VERKEYPlaceholderX"
   baseWalletName: "Catena-X"
 revocation:
   refreshHour: "3"
@@ -62,7 +62,7 @@ acapy:
     endpointPort: "8003"
     adminPort: "11003"
     adminUrl: "http://localhost:11003"
-    endorserPublicDid: "MhLrwtKpZhNCzazMeofPQH"
+    endorserPublicDid: "ShortDIDPlaceholderX"
     webhookUrl: "http://localhost:8080/webhook"
     secret:
       apikey: "0"
@@ -127,3 +127,4 @@ managedIdentityWallets:
     bpdmauthclientsecret: "client"
 certificate:
   host: "localhost"
+isLocal: false
