@@ -1,5 +1,11 @@
 FROM busybox
 
+# run as non-root user
+RUN addgroup -g 1001 -S user && adduser -u 1001 -S -s /bin/false -G user user
+
 RUN mkdir import
+RUN chown -R user:user import
+
+USER user
 
 COPY initdb/ initdb
