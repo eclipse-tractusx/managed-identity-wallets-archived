@@ -300,21 +300,20 @@ docker run --env-file .env.docker -p 8080:8080 managed-identity-wallets:<VERSION
     Altogether four secrets are needed
     * managed-identity-wallets-secrets
     * managed-identity-wallets-acapy-secrets    
-    * product-managed-identity-wallets-acapypostgresql
-    * product-managed-identity-wallets-postgresql
+    * postgres-acapy-secret-config
+    * postgres-managed-identity-wallets-secret-config
 
     Create these with following commands, after replacing the placeholders:
 
     ```
-    kubectl -n managed-identity-wallets create secret generic managed-identity-wallets-secret \
+    kubectl -n managed-identity-wallets create secret generic managed-identity-wallets-secrets \
       --from-literal=miw-db-jdbc-url='jdbc:postgresql://<placeholder>:5432/<database name>?user=<database user>&password=<<database password>>' \
       --from-literal=miw-auth-client-id='ManagedIdentityWallets' \
       --from-literal=miw-auth-client-secret='<placeholder>' \
       --from-literal=bpdm-auth-client-id='<placeholder>' \
       --from-literal=bpdm-auth-client-secret='<placeholder>'
 
-
-    kubectl -n managed-identity-wallets create secret generic managed-identity-wallets-acapy \
+    kubectl -n managed-identity-wallets create secret generic managed-identity-wallets-acapy-secrets \
       --from-literal=acapy-endorser-wallet-key='<placeholder>' \
       --from-literal=acapy-endorser-agent-wallet-seed='<placeholder>' \
       --from-literal=acapy-endorser-jwt-secret='<placeholder>' \
@@ -332,12 +331,12 @@ docker run --env-file .env.docker -p 8080:8080 managed-identity-wallets:<VERSION
       --from-literal=acapy-mt-db-admin-password='<placeholder>' \
       --from-literal=acapy-mt-admin-api-key='<placeholder>'
 
-    kubectl -n managed-identity-wallets create secret generic product-managed-identity-wallets-acapypostgresql \
+    kubectl -n managed-identity-wallets create secret generic postgres-acapy-secret-config \
     --from-literal=password='<placeholder>' \
     --from-literal=postgres-password='<placeholder>' \
     --from-literal=user='postgres'
 
-    kubectl -n managed-identity-wallets create secret generic product-managed-identity-wallets-postgresql \
+    kubectl -n managed-identity-wallets create secret generic postgres-managed-identity-wallets-secret-config \
     --from-literal=password='<placeholder>' \
     --from-literal=postgres-password='<placeholder>' \
     --from-literal=user='postgres'
@@ -354,18 +353,17 @@ docker run --env-file .env.docker -p 8080:8080 managed-identity-wallets:<VERSION
     helm install managed-identity-wallets ./charts/managed-identity-wallets/ -n managed-identity-wallets -f ./charts/managed-identity-wallets/values.yaml -f ./charts/managed-identity-wallets/values-local.yaml
     ```
 
-4. For Local Setup, expose via Port-Forwarding
+4. Expose via loadbalancer
 
     ```
-    kubectl port-forward pods/managed-identity-wallets-UUID 8080:8080 -n managed-identity-wallets
+    kubectl -n managed-identity-wallets apply -f dev-assets/kube-local-lb.yaml
     ```
-
 
 5. To check the current deployment and version run `helm list -n <namespace-placeholder>`. Example output:
 
     ```
-    NAME                            NAMESPACE                       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
-    managed-identity-wallets        managed-identity-wallets        1               2023-03-14 11:37:01.0678694 +0100 CET   deployed        managed-identity-wallets-0.7.5  3.3.2
+    NAME         	NAMESPACE        	REVISION	UPDATED                                	STATUS  	CHART                  	                APP VERSION
+    miw       	ingress-miw     	1       	2022-02-24 08:51:39.864930557 +0000 UTC	deployed	managed-identity-wallets-0.1.0	0.0.5      
     ```
 
 # End Users
