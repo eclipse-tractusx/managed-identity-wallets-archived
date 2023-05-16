@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.3] - 2023-05-16
+### Fixed
+- Security issues regarding container images executed as root user are now executed as non-root user 
+
 ## [3.3.2] - 2023-02-24
 ### Fixed
 - Configurable log level settings with default to INFO
