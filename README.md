@@ -1,8 +1,6 @@
 # Managed Identity Wallets <a id="introduction"></a>
 
-The Managed Identity Wallets (MIW) service implements the Self-Sovereign-Identity (SSI)
-readiness by providing a wallet hosting platform including a DID resolver,
-service endpoints and the company wallets itself.
+The Managed Identity Wallets (MIW) service implements the Self-Sovereign-Identity (SSI) readiness by providing a wallet hosting platform including a DID resolver,service endpoints and the company wallets itself.
 
 Technically this project is developed using the [ktor](https://ktor.io) Microservices
 framework and thus the Kotlin language. It is using [gradle](https://gradle.org/) as
@@ -12,12 +10,11 @@ it's [multi-tenant feature](https://github.com/hyperledger/aries-cloudagent-pyth
 and [JSON-LD credential](https://github.com/hyperledger/aries-cloudagent-python/blob/main/JsonLdCredentials.md)
 To support credential revocation MIW is using the revocation service within the
 [GXFS Notarization API/Service](https://gitlab.com/gaia-x/data-infrastructure-federation-services/not/notarization-service/-/tree/main/services/revocation)
-
 > **Warning**
 > This is not yet ready for production usage, as
 > [Aries Cloud Agent Python](https://github.com/hyperledger/aries-cloudagent-python)
 > does not support `did:indy` resolution yet. This disclaimer will be removed,
-> once it is available.
+> once it is available.https://img.shields.io/badge/Version-0.7.7-informational
 
 # Developer Documentation
 
