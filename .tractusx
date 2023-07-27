@@ -1,0 +1,6 @@
+product: "managed-identity-wallets-archived"
+leadingRepository: "https://github.com/eclipse-tractusx/managed-identity-wallets-archived"
+repositories:
+- name: "managed-identity-wallets-archived"
+  usage: "The Managed Identity Wallets (MIW) service"
+  url: "https://github.com/eclipse-tractusx/managed-identity-wallets-archived"
