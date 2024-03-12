@@ -2,7 +2,8 @@
 
 [![status: archive](https://github.com/GIScience/badges/raw/master/status/archive.svg)](https://github.com/GIScience/badges#archive)
 
-❗This repository is currently not under active maintenance and therefore archived. If you plan on picking up this product again, feel free to reach out ot the Eclipse Tractus-X projects leads via [mailing list](https://accounts.eclipse.org/mailing-list/tractusx-dev)
+>❗**Note**❗
+> This repository is currently not under active maintenance and therefore archived. If you plan on picking up this product again, feel free to reach out ot the Eclipse Tractus-X projects leads via [mailing list](https://accounts.eclipse.org/mailing-list/tractusx-dev).
 
 The Managed Identity Wallets (MIW) service implements the Self-Sovereign-Identity (SSI) readiness by providing a wallet hosting platform including a DID resolver,service endpoints and the company wallets itself.
 
